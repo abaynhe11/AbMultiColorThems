@@ -14,6 +14,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         val blue_theme_btn : Button = findViewById(R.id.blue_theme_btn)
         val red_theme_btn : Button = findViewById(R.id.red_theme_btn)
+        val default_theme : Button = findViewById(R.id.default_theme_btn)
 
         blue_theme_btn.setOnClickListener {
 
@@ -24,7 +25,10 @@ class MainActivity : BaseActivity() {
             Utility.setTheme(applicationContext,2)
             recreateActivity()
         }
-
+        default_theme.setOnClickListener {
+            Utility.setTheme(applicationContext,3)
+            recreateActivity()
+        }
 
     }
 

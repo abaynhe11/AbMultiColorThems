@@ -11,6 +11,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private final static int THEME_BLUE = 1;
     private final static int THEME_RED = 2;
+    private final static int THEME_DEFAULT = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,13 @@ public class BaseActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 getWindow().setStatusBarColor(getResources().getColor(R.color.primaryColorDark_red));
+            }
+        }
+        else if (Utility.getTheme(getApplicationContext()) == THEME_DEFAULT) {
+            setTheme(R.style.Theme_MultiColorThemes);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                getWindow().setStatusBarColor(getResources().getColor(R.color.purple_500));
             }
         }
     }
